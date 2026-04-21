@@ -1,21 +1,28 @@
-import Navbar from "../components/Navbar";
-import Footer from "../components/Footer";
+import { createBrowserRouter } from "react-router-dom";
+import Layout from "../components/Layout";
 import Home from "../pages/Home";
 import Products from "../pages/Products";
 import Contact from "../pages/Contact";
-import { Outlet } from "react-router-dom";
 
-export let routerApp = [
-    {
-        path:"/",
-        element: <Home />
-    },
-    {
-        path: "/dashboard",
-        element: <Products />
-    },
-    {
-        path: "/register",
-        element: <Contact />
-    }
-]
+const router = createBrowserRouter([
+  {
+    path: "/",
+    element: <Layout />,
+    children: [
+      {
+        path: "/",
+        element: <Home />,
+      },
+      {
+        path: "/products",
+        element: <Products />,
+      },
+      {
+        path: "/contact",
+        element: <Contact />,
+      },
+    ],
+  },
+]);
+
+export default router;

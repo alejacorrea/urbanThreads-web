@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { Link } from "react-router-dom";
 import "../index.css";
 
 export default function Navbar() {
@@ -7,7 +8,9 @@ export default function Navbar() {
   return (
     <nav className="navbar">
       <div className="navbar__container">
-        <a href="#" className="navbar__logo">URBAN THREADS</a>
+        <a href="#" className="navbar__logo">
+          URBAN THREADS
+        </a>
 
         <button
           className={`navbar__toggle${open ? " open" : ""}`}
@@ -20,9 +23,21 @@ export default function Navbar() {
         </button>
 
         <ul className={`navbar__menu${open ? " open" : ""}`}>
-          <li><a href="#" className="navbar__link" onClick={() => setOpen(false)}>Inicio</a></li>
-          <li><a href="#" className="navbar__link" onClick={() => setOpen(false)}>Productos</a></li>
-          <li><a href="#" className="navbar__link" onClick={() => setOpen(false)}>Contacto</a></li>
+          <li>
+            <Link to="/" className="navbar__link">
+              Inicio
+            </Link>
+          </li>
+          <li>
+            <Link to="/products" className="navbar__link">
+              Productos
+            </Link>
+          </li>
+          <li>
+            <Link to="/contact" className="navbar__link">
+              Contacto
+            </Link>
+          </li>
         </ul>
       </div>
     </nav>
